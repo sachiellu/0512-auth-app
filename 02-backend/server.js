@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 
-const mongoURI = process.env.MONGO_URI;
+const mongoURI = process.env.MONGODB_URI;
 
 mongoose
   .connect(mongoURI, {
