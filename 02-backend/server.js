@@ -25,8 +25,8 @@ mongoose
     console.log("成功連接 MongoDB");
 
     // 伺服器開始監聽
-    app.listen(port, () => {
-      console.log(` Server is running on port ${port}`);
+    app.listen(port, '0.0.0.0', () => {
+      console.log(`伺服器正在監聽 ${port} 端口，地址 0.0.0.0`);
     });
   })
   .catch((err) => {
