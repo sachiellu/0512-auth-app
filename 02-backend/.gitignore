@@ -2,11 +2,9 @@
 
 # dependencies
 /node_modules
-01-frontend/node_modules/ # 為了更明確
-02-backend/node_modules/ # 為了更明確
+02-backend/node_modules/ 
 
 # next.js
-01-frontend/.next/
 /out/
 
 # production

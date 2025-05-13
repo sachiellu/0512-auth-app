@@ -4,8 +4,9 @@ const authRoutes = require("./routes/auth");
 const cors = require("cors");
 
 console.log("--- DEBUG INFO ---");
-console.log("process.env.PORT as seen by Node.js:", process.env.PORT);
-console.log("process.env.MONGODB_URI (length):", process.env.MONGODB_URI ? process.env.MONGODB_URI.length : 'undefined');
+console.log("Raw process.env.MONGODB_URI (length):", process.env.MONGODB_URI ? process.env.MONGODB_URI.length : 'undefined');
+console.log("Raw process.env.JWT_SECRET (exists?):", !!process.env.JWT_SECRET);
+console.log("Raw process.env.PORT:", process.env.PORT);
 console.log("--- END DEBUG INFO ---");
 
 const app = express();
@@ -18,8 +19,7 @@ app.use("/api/auth", authRoutes);
 
 const mongoURI = process.env.MONGODB_URI;
 
-mongoose
-  .connect(mongoURI)
+mongoose.connect(mongoURI)
   .then(() => {
     console.log("成功連接 MongoDB");
     app.listen(port, '0.0.0.0', () => {
