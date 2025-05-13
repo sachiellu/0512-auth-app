@@ -16,6 +16,15 @@ primary_region = 'sin'
   min_machines_running = 0
   processes = ['app']
 
+  [[http_service.ports]] # 確保外部端口正確映射
+    port = 80
+    handlers = ["http"]
+    force_https = true # 通常在 http_service 層級設定就夠了
+
+  [[http_service.ports]]
+    port = 443
+    handlers = ["tls", "http"]
+
 [[vm]]
   memory = '1gb'
   cpu_kind = 'shared'
