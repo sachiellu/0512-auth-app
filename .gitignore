@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+**/node_modules/
 01-frontend/node_modules/ # 為了更明確
 02-backend/node_modules/ # 為了更明確
 
@@ -26,6 +26,9 @@ yarn-error.log*
 01-frontend/.env.local
 02-backend/.env
 
+# Build output
+01-frontend/dist/ 
+
 # vercel
 .vercel
 
@@ -49,3 +52,15 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
