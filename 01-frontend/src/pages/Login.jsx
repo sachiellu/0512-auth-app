@@ -5,20 +5,20 @@ import axios from "axios";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://youtubeplayer-auth-api.fly.dev';
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/login", {
+      const response = await axios.post(`${API_BASE_URL}/api/auth/login`, {
         username,
         password,
       });
 
       // 存儲 token
       localStorage.setItem("token", response.data.token);
-
       console.log("登入成功");
       navigate("/dashboard");
     } catch (error) {
