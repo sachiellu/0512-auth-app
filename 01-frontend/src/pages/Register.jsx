@@ -13,7 +13,7 @@ const Register = () => {
 
     try {
       // 發送註冊請求到後端
-      const response = await axios.post(`${API_BASE_URL}/api/auth/login`, {
+      const response = await axios.post(`${API_BASE_URL}/api/auth/register`, {
         username,
         password,
       });
