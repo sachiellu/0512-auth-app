@@ -13,19 +13,17 @@ const Register = () => {
 
     try {
       // 發送註冊請求到後端
-
-      const apiUrl = `${API_BASE_URL || ' fallback_if_vercel_env_missing '}/api/auth/register`;
-      console.log("Requesting API at:", apiUrl);
-
-  const response = await axios.post(apiUrl, {
+      const response = await axios.post(`${API_BASE_URL}/api/auth/register`, {
         username,
         password,
       });
 
       console.log("註冊成功", response.data);
+      alert("註冊成功!您現在可以登入了。")
 
       // 註冊成功後跳轉到登入頁面
       navigate("/login");
+
     } catch (error) {
       // 檢查是否有 response
       if (error.response) {
