@@ -5,6 +5,7 @@ import axios from "axios";
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://youtubeplayer-auth-api.fly.dev';
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
@@ -12,7 +13,7 @@ const Register = () => {
 
     try {
       // 發送註冊請求到後端
-      const response = await axios.post("http://localhost:5000/api/auth/register", {
+      const response = await axios.post(`${API_BASE_URL}/api/auth/login`, {
         username,
         password,
       });
