@@ -12,7 +12,11 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`${API_BASE_URL}/api/auth/login`, {
+
+      const apiUrl = `${API_BASE_URL || ' fallback_if_vercel_env_missing '}/api/auth/login`;
+      console.log("Requesting API at:", apiUrl);
+
+  const response = await axios.post(apiUrl, {
         username,
         password,
       });

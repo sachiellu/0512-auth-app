@@ -13,7 +13,11 @@ const Register = () => {
 
     try {
       // 發送註冊請求到後端
-      const response = await axios.post(`${API_BASE_URL}/api/auth/register`, {
+
+      const apiUrl = `${API_BASE_URL || ' fallback_if_vercel_env_missing '}/api/auth/register`;
+      console.log("Requesting API at:", apiUrl);
+
+  const response = await axios.post(apiUrl, {
         username,
         password,
       });
